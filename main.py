@@ -24,8 +24,8 @@ def create_graph(df):
 
 
 def check(df):
-    count_of_female = len(df[(df['Genre'] == 'Female') & (df['Spending Score (1-100)'] > 80)])
-    count_of_male = len(df[(df['Genre'] == 'Male') & (df['Spending Score (1-100)'] > 80)])
+    count_of_female = len(df[(df['Genre'] == 'Female') & (df['Annual Income (k$)'] > 61.5)])
+    count_of_male = len(df[(df['Genre'] == 'Male') & (df['Annual Income (k$)'] > 61.5)])
     if count_of_female>count_of_male:
         return True
     else:
@@ -34,6 +34,8 @@ def check(df):
 def main():
     df = create_df()
     create_graph(df)
+    print(f'num of man: {len(df[df["Genre"] == "Male"])} and num of woman: {len(df[df["Genre"] == "Female"])}')
+    print(df.describe())
     print(check(df))
 
 
