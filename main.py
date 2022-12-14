@@ -34,9 +34,17 @@ def check(df):
 def main():
     df = create_df()
     create_graph(df)
+    print("My hypothesis is women spends more money than men yearly. "
+          "We check it on the dataset about mall customers \n")
     print(f'num of man: {len(df[df["Genre"] == "Male"])} and num of woman: {len(df[df["Genre"] == "Female"])}')
+    print("Number of men and women almost equal\n")
+    print("Description of dataset")
     print(df.describe())
-    print(check(df))
+    print('\nExplore the annual income')
+    print(df.describe()['Annual Income (k$)'])
+    print("\nWe can see that median is 61,5 so we use it for hypothesis")
+    if check(df):
+        print("\nIn the result we understand that Women spends more many than men in this mall yearly")
 
 
 
